@@ -915,6 +915,15 @@ class HomePage extends ConsumerWidget {
 3.ใช้แค่ setState ก็เอาอยู่ เขียน setState ธรรมดาก็แก้ปัญหาได้ ไม่ต้องไปเปิด Provider ตัวใหม่ให้ยุ่งยาก เน้นเลือกเครื่องมือที่เบาที่สุด
 ```
 ### โจทย์ที่ 2: ปุ่ม "ล้างรายการโปรดทั้งหมด"
+
+<img width="1916" height="548" alt="image" src="https://github.com/user-attachments/assets/77789e99-2161-4ce0-952e-3cf19f5428c1" />
+
+<img width="1919" height="599" alt="image" src="https://github.com/user-attachments/assets/fb6fcc55-f3f0-417b-9ade-46a9187dc049" />
+
+<img width="1919" height="838" alt="image" src="https://github.com/user-attachments/assets/793285a8-0d5c-40aa-ba6c-0a8cb9b602ea" />
+
+<img width="1919" height="675" alt="image" src="https://github.com/user-attachments/assets/b5457486-241f-4853-b7f3-670dc49597d7" />
+
 ```
 
 ```
