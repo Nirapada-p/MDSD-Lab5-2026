@@ -893,6 +893,10 @@ class HomePage extends ConsumerWidget {
 - ต้องใช้ `context.read` หรือ `context.watch` ให้ถูกต้องตามหลักการ และอธิบายเหตุผลการเลือกไว้ใน `notes.md`
 - ปุ่มต้องแสดงเฉพาะเมื่อมีรายการโปรดอย่างน้อย 1 รายการเท่านั้น (ถ้ารายการว่างอยู่แล้วไม่ต้องแสดงปุ่มนี้)
 
+<img width="1919" height="896" alt="image" src="https://github.com/user-attachments/assets/a11e1302-4e38-493a-b7e6-bf2dc008af31" />
+
+<img width="1919" height="718" alt="image" src="https://github.com/user-attachments/assets/c839a489-85b0-45b4-b258-4c16ed618f76" />
+
 ### โจทย์ที่ 3 (ท้าทายเพิ่ม ไม่บังคับ)
 
 ทำโจทย์ที่ 1 และ 2 ซ้ำอีกครั้งในโปรเจกต์ทดลอง Riverpod (ส่วนที่ 4) เพื่อฝึกโยกความสามารถเดียวกันข้ามเครื่องมือ State Management สองแบบ
