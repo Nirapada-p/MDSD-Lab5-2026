@@ -540,7 +540,50 @@ class HomePage extends StatelessWidget {
 
 บันทึกคำตอบที่ได้จาก Gemini 
 
-```text
+```
+สำหรับการเลือกใช้ State Management ในแอป Flutter ของคุณ
+ผมขอสรุปคำแนะนำที่เหมาะสมที่สุดตามหลักการ Ephemeral State (State เฉพาะที่) และ
+App State (State ระดับแอป) ดังนี้ครับ:
+
+1. Dark Mode / Light Mode
+
+  - เครื่องมือที่แนะนำ: Riverpod หรือ Provider
+  - เหตุผล:
+      - Global Scope: โหมดของแอปเป็น State ระดับสูงสุดที่ส่งผลต่อทุก Widget
+        ในทุกหน้าจอ
+      - Easy Access: การใช้ Riverpod/Provider ช่วยให้คุณเรียกใช้ค่า Theme
+        ได้จากทุกที่โดยไม่ต้องส่งผ่าน Constructor (Prop Drilling)
+        และเมื่อมีการเปลี่ยนค่า (Toggle) แอปจะ Re-build
+        เฉพาะส่วนที่จำเป็นได้อย่างมีประสิทธิภาพ
+
+2. ตัวนับ "มีคนถูกใจแล้วกี่คน" (Sync ระหว่างหน้า)
+
+  - เครื่องมือที่แนะนำ: Riverpod หรือ Provider
+  - เหตุผล:
+      - Shared State: ข้อมูลชุดนี้ถูกใช้ร่วมกันในหลายหน้า (List View และ Detail
+        View) หากคุณกดถูกใจในหน้ารายละเอียด แล้วกด Back กลับมา
+        ข้อมูลในหน้ารายการต้องอัปเดตทันที
+      - Data Consistency: การใช้ State Management ส่วนกลางช่วยให้มั่นใจว่าข้อมูล
+        "ตัวเลข" ของสินค้าชิ้นเดียวกันในทุกหน้าจอคือค่าเดียวกันเสมอ (Single
+        Source of Truth)
+
+3. Animation กระพริบของไอคอนหัวใจ (ตอนกด)
+
+  - เครื่องมือที่แนะนำ: setState (ภายใน StatefulWidget)
+  - เหตุผล:
+      - Ephemeral State: เป็น State ระยะสั้นที่เกิดขึ้นและจบลงภายใน Widget เดียว
+        ไม่จำเป็นต้องให้หน้าอื่นหรือ Widget อื่นรับรู้
+      - Performance & Lifecycle: การทำ Animation มักเกี่ยวข้องกับ
+        AnimationController ซึ่งต้องมีการ dispose() เพื่อคืน Memory การใช้
+        setState ร่วมกับ StatefulWidget (หรือใช้ Flutter Hooks)
+        จึงเหมาะสมที่สุดและไม่ทำให้โครงสร้างแอปซับซ้อนเกินความจำเป็น
+
+สรุปคำแนะนำเพิ่มเติม:
+
+หากแอปนี้เป็นโปรเจกต์ใหม่และต้องการความยืดหยุ่นในระยะยาว ผมแนะนำให้ใช้ Riverpod
+เป็นหลักสำหรับข้อ 1 และ 2 เพราะจัดการเรื่อง Dependency Injection
+ได้ดีกว่าและทดสอบ (Unit Test) ได้ง่ายกว่า ส่วนข้อ 3 ให้ใช้ StatefulWidget
+(setState) เพื่อความรวดเร็วและประหยัดทรัพยากรครับ
 
 ```
 
